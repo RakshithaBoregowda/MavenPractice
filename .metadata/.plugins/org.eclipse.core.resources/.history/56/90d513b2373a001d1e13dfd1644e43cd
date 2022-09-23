@@ -1,0 +1,45 @@
+package Org_RMB_Testcases;
+import org.testng.annotations.Test;
+
+import Org.GenericUtility.Base_Class;
+
+
+public class OpenAccount1Test extends Base_Class
+{
+
+	@Test
+
+	public void OpenAccount() throws InterruptedException 
+	{
+
+		
+		comAction.OpenAccount();
+        openAccountPage.createAccount(map, driver);
+		String message = webDriverUtility.alertHandle(driver);
+		System.out.println(message);
+        String applicationNumber = javaUtility.fetchNumFromAlert(message);
+		System.out.println(applicationNumber);
+
+        comAction.StaffLoginButton();
+		staffLoginPage.loginAction(staffid, password);
+		adminCommonAction.approvePendingAcountButton();
+		approvePendingAccountPage.approveAccount(applicationNumber);
+		
+		
+		webDriverUtility.explicitWaitMethodForAlert(driver);
+		String message1 = webDriverUtility.alertHandle(driver);
+		String accountNumber = javaUtility.fetchNumFromAlert(message1);
+		System.out.println(accountNumber);
+		
+		comAction.HomeButton();
+
+
+		webDriverUtility.testCaseValidationUsingSoftAssert(message1, "Account Created Successfully");
+
+	}
+}
+
+
+
+
+

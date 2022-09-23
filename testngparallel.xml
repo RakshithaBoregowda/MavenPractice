@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite parallel="tests" thread-count="2" name="Suite">
+  <test thread-count="3" name="Test">
+ <parameter name="browser" value="firefox"/>
+    <classes>
+          <class name="practice.TestCase1TestNG"/>
+          <class name="practice.TestCase2TestNG"/>
+          <class name="practice.TestCase3TestNG"/>
+          <class name="practice.TestCase4TestNG"/>
+    </classes>
+  </test> <!-- Test -->
+
+<test thread-count="5" name="Test1">
+    <classes>
+          <class name="practice.TestCase1TestNG"/>
+          <class name="practice.TestCase2TestNG"/>
+          <class name="practice.TestCase3TestNG"/>
+          <class name="practice.TestCase4TestNG"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
